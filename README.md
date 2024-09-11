@@ -2,12 +2,15 @@
 at the same time I'll improve my English.
 
 ## Data Types in C:
-![image](https://github.com/user-attachments/assets/4cdd4069-c607-4a32-8fb6-671d969add5c)
+![image](https://github.com/user-attachments/assets/df788732-ad17-46e0-a9c1-d9bb8257bd4c)
 
-## Format modifiers:
-![image](https://github.com/user-attachments/assets/440e8124-bec9-4ae5-94a5-3a81f822562d)
+## ASCII table:
+![image](https://github.com/user-attachments/assets/fcdc2a46-3e96-4b19-b996-7dee4441099c)
 
----
+## Files for works:
+- 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
+- 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
+- 📄[Практическое задание 1. Типы данных и вывод](https://eios.sibsutis.ru/mod/resource/view.php?id=161572)
 
 ## 📚 List of Literature
 
