@@ -1,5 +1,5 @@
 #include <stdio.h> // предпроцесорная дериктива -> #
-#include <string.h>
+// #include <string.h>
 
 // Comment
 
