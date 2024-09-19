@@ -7,6 +7,24 @@ at the same time I'll improve my English.
 ## ASCII table:
 ![image](https://github.com/user-attachments/assets/fcdc2a46-3e96-4b19-b996-7dee4441099c)
 
+## Compilation steps
+![image](https://github.com/user-attachments/assets/1bf9399c-f362-4ed8-b5a4-1f95de0eec4c)
+
+## Constants
+![image](https://github.com/user-attachments/assets/a95d439b-3ce6-4b1b-a455-86f99d2b6a55)
+
+## Number systems
+![image](https://github.com/user-attachments/assets/3eafbe7c-98c2-4c9b-ab28-1e469e70bd88)
+
+## Arithmetic Operators
+![image](https://github.com/user-attachments/assets/e1758a81-0609-461f-b5d5-4d4b81c2f261)
+
+## Ternary Operator
+![image](https://github.com/user-attachments/assets/595762f6-dbba-4b10-82ad-a861e6fe6404)
+
+## Type casting
+![image](https://github.com/user-attachments/assets/0c35045e-51ce-4270-a355-34ffbd5282ab)
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
