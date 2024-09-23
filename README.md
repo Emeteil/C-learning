@@ -28,6 +28,21 @@ at the same time I'll improve my English.
 ## Logical Operators
 ![image](https://github.com/user-attachments/assets/c7999f10-7fbd-47f2-99a8-bcf2001ba4f9)
 
+## while loop
+![image](https://github.com/user-attachments/assets/aba572a7-c80b-4ce1-b695-771ef6eed3e6)
+
+## do .. while loop
+![image](https://github.com/user-attachments/assets/d58e2ba0-d74b-4846-a36f-ea3a17946c53)
+
+## for loop
+![image](https://github.com/user-attachments/assets/13b01ea6-f217-485e-9dc7-f555fcaf0f50)
+
+## break, continue example
+![image](https://github.com/user-attachments/assets/75fb8bd3-dfa0-497b-baf6-777d208229f5)
+
+## for loop variations
+![image](https://github.com/user-attachments/assets/3e8045cf-452a-4f56-be9a-40e3123e3c90)
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
