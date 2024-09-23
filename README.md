@@ -29,6 +29,12 @@ at the same time I'll improve my English.
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
 - 📄[Практическое задание 1. Типы данных и вывод](https://eios.sibsutis.ru/mod/resource/view.php?id=161572)
+- 🖼️[2_types_and_conds](https://eios.sibsutis.ru/mod/resource/view.php?id=162002)
+- 🖼️[2.5_conditions](https://eios.sibsutis.ru/mod/resource/view.php?id=162377)
+- 📄[Практическое задание 2. Условия](https://eios.sibsutis.ru/mod/resource/view.php?id=162144)
+- 🖼️[3_loops](https://eios.sibsutis.ru/mod/resource/view.php?id=162400)
+- 📄[Практическое задание 3. Циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162401)
+- 📄[Практическое задание 4. Вложенные циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162402)
 
 ## 📚 List of Literature
 
