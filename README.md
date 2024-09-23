@@ -25,6 +25,9 @@ at the same time I'll improve my English.
 ## Type casting
 ![image](https://github.com/user-attachments/assets/0c35045e-51ce-4270-a355-34ffbd5282ab)
 
+## Logical Operators
+![image](https://github.com/user-attachments/assets/c7999f10-7fbd-47f2-99a8-bcf2001ba4f9)
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
