@@ -43,6 +43,36 @@ at the same time I'll improve my English.
 ## for loop variations
 ![image](https://github.com/user-attachments/assets/3e8045cf-452a-4f56-be9a-40e3123e3c90)
 
+## Bitwise operations
+```c
+// Побитовое И (AND) - `&`
+int a = 5;  // 0101 в двоичной системе
+int b = 3;  // 0011 в двоичной системе
+int c = a & b;  // Результат: 0001 (1 в десятичной системе)
+
+// Побитовое ИЛИ (OR) - `|`
+int a = 5;  // 0101 в двоичной системе
+int b = 3;  // 0011 в двоичной системе
+int c = a | b;  // Результат: 0111 (7 в десятичной системе)
+
+// Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ (XOR) - `^`
+int a = 5;  // 0101 в двоичной системе
+int b = 3;  // 0011 в двоичной системе
+int c = a ^ b;  // Результат: 0110 (6 в десятичной системе)
+
+// Побитовое НЕ (NOT) - `~`
+int a = 5;  // 0101 в двоичной системе
+int b = ~a;  // Результат: 1010 (в зависимости от размера типа данных)
+
+// Сдвиг влево (Left Shift) - `<<`
+int a = 5;  // 0101 в двоичной системе
+int b = a << 1;  // Результат: 1010 (10 в десятичной системе)
+
+// Сдвиг вправо (Right Shift) - `>>`
+int a = 5;  // 0101 в двоичной системе
+int b = a >> 1;  // Результат: 0010 (2 в десятичной системе)
+```
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
@@ -51,8 +81,11 @@ at the same time I'll improve my English.
 - 🖼️[2.5_conditions](https://eios.sibsutis.ru/mod/resource/view.php?id=162377)
 - 📄[Практическое задание 2. Условия](https://eios.sibsutis.ru/mod/resource/view.php?id=162144)
 - 🖼️[3_loops](https://eios.sibsutis.ru/mod/resource/view.php?id=162400)
+- 🖼️[3.5_functions_part1](https://eios.sibsutis.ru/mod/resource/view.php?id=162722)
 - 📄[Практическое задание 3. Циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162401)
 - 📄[Практическое задание 4. Вложенные циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162402)
+- 🖼️[5_bitwise_op](https://eios.sibsutis.ru/mod/resource/view.php?id=162854)
+- 📄[Практическое задание 5. Битовые операции](https://eios.sibsutis.ru/mod/resource/view.php?id=162845)
 
 ## 📚 List of Literature
 
