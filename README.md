@@ -75,7 +75,7 @@ int b = a >> 1;  // Результат: 0010 (2 в десятичной сист
 ```
 
 ## Magic with bitwise operations
-```
+```c
 // Умножение на 2 в степени n
 x = 5;
 result = x << 1;  // result = 10 (5 * 2^1)
