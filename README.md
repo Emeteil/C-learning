@@ -112,8 +112,11 @@ int is_power_of_two = (x & (x - 1)) == 0;  // is_power_of_two = 1 (true), так
 - 🖼️[3.5_functions_part1](https://eios.sibsutis.ru/mod/resource/view.php?id=162722)
 - 📄[Практическое задание 3. Циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162401)
 - 📄[Практическое задание 4. Вложенные циклы](https://eios.sibsutis.ru/mod/resource/view.php?id=162402)
-- 🖼️[5_bitwise_op](https://eios.sibsutis.ru/mod/resource/view.php?id=162854)
+- 🖼️[4_bitwise_op](https://eios.sibsutis.ru/mod/resource/view.php?id=162854)
 - 📄[Практическое задание 5. Битовые операции](https://eios.sibsutis.ru/mod/resource/view.php?id=162845)
+- 🖼️[5_static_arrays](https://eios.sibsutis.ru/mod/resource/view.php?id=163911)
+- 📄[Практическое задание 6. Одномерные массивы](https://eios.sibsutis.ru/mod/resource/view.php?id=163160)
+- 📄[Практическое задание 7. Строки](https://eios.sibsutis.ru/mod/resource/view.php?id=163912)
 
 ## 📚 List of Literature
 
