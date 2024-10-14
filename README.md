@@ -101,6 +101,9 @@ x = 8;
 int is_power_of_two = (x & (x - 1)) == 0;  // is_power_of_two = 1 (true), так как 8 = 2^3
 ```
 
+## Arrays, Addressing, Matrices
+![image (1)](https://github.com/user-attachments/assets/3ae32e45-1fb0-430d-a7e7-5d2cdb9e2b94)
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
