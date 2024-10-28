@@ -274,6 +274,7 @@ new_ptr = NULL;
 - 🖼️[5_static_arrays](https://eios.sibsutis.ru/mod/resource/view.php?id=163911)
 - 📄[Практическое задание 6. Одномерные массивы](https://eios.sibsutis.ru/mod/resource/view.php?id=163160)
 - 📄[Практическое задание 7. Строки](https://eios.sibsutis.ru/mod/resource/view.php?id=163912)
+- 🖼️[5.1 pointers](https://eios.sibsutis.ru/mod/resource/view.php?id=165242)
 
 ## 📚 List of Literature
 
