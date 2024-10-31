@@ -97,7 +97,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         create_addl_delta(N, i, matrix, right_side, new_delta_matrix);
         new_delta = matrix_determiner(N, new_delta_matrix);
-        printf("%c = %0.2lf\n", 97 + i, (double)new_delta/delta);
+        printf("%c = %0.2lf\n", 97 + i, new_delta/delta);
     }
 
     return 0;
