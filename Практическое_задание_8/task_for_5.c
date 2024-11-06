@@ -78,7 +78,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             printf("%0.1lf%c ", matrix[i][j], 97 + j);
-            if (j != N - 1) printf("* ");
+            if (j != N - 1) printf("+ ");
         }
         printf("= %0.1lf\n", right_side[i]);
     }
