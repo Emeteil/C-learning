@@ -275,6 +275,11 @@ new_ptr = NULL;
 - 📄[Практическое задание 6. Одномерные массивы](https://eios.sibsutis.ru/mod/resource/view.php?id=163160)
 - 📄[Практическое задание 7. Строки](https://eios.sibsutis.ru/mod/resource/view.php?id=163912)
 - 🖼️[5.1 pointers](https://eios.sibsutis.ru/mod/resource/view.php?id=165242)
+- 📄[Практическое задание 8. Матрицы](https://eios.sibsutis.ru/mod/resource/view.php?id=165329)
+- 🖼️[5.2_dynamic_arrays](https://eios.sibsutis.ru/mod/resource/view.php?id=165917)
+- 📄[Доп. задание под *: Улитка](https://eios.sibsutis.ru/mod/resource/view.php?id=166167)
+- 🖼️[6_functions_p2](https://eios.sibsutis.ru/mod/resource/view.php?id=165946)
+- 📄[Практическое задание 9. Функции](https://eios.sibsutis.ru/mod/resource/view.php?id=165933)
 
 ## 📚 List of Literature
 
