@@ -167,7 +167,7 @@ int main() {
 
     int** C = multiply_matrix(m, n, k, A, B);
     clear_memory_matrix(A, m);
-    clear_memory_matrix(B, m);
+    clear_memory_matrix(B, n);
 
     puts("Матрица C(A x B): ");
     print_matrix(m, k, C);
@@ -186,6 +186,8 @@ int main() {
     printf("Записываем строку %d в обратном порядке:\n", line);
     swap_line_by_reverse(k, C, line);
     print_matrix(m, k, C);
+
+    clear_memory_matrix(C, m);
 
     return 0;
 }
