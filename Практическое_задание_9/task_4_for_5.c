@@ -136,8 +136,10 @@ void swap_line_by_reverse(size_t M, int** matrix, int line) {
 }
 
 void clear_memory_matrix(int** matrix, int N) {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++) {
         free(matrix[i]);
+        matrix[i] = NULL;
+    }
     free(matrix);
 }
 
@@ -166,8 +168,16 @@ int main() {
     print_matrix(n, k, B);
 
     int** C = multiply_matrix(m, n, k, A, B);
+
+    if (C == NULL) {
+        puts("Не удалось выделить память для работы программы!");
+        return 1;
+    }
+
     clear_memory_matrix(A, m);
+    A = NULL;
     clear_memory_matrix(B, n);
+    B = NULL;
 
     puts("Матрица C(A x B): ");
     print_matrix(m, k, C);
@@ -188,6 +198,7 @@ int main() {
     print_matrix(m, k, C);
 
     clear_memory_matrix(C, m);
+    C = NULL;
 
     return 0;
 }
