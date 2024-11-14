@@ -258,6 +258,133 @@ free(new_ptr);
 new_ptr = NULL;
 ```
 
+## Structures in C
+```c
+// Определение структуры Point
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+// Инициализация структуры Point
+Point p1 = {5, 15}; // p1=(5, 15)
+Point p2 = {10, 20}; // p2=(10, 20)
+
+// Указатели на структуры
+Point *p_ptr = &p1;
+p_ptr->x = 25;
+p_ptr->y = 35; // p1=(25, 35)
+
+// Вложенные структуры
+typedef struct {
+    Point top_left;
+    Point bottom_right;
+} Rectangle;
+
+Rectangle rect = {{10, 20}, {30, 40}}; // rect=(top_left=(10, 20), bottom_right=(30, 40))
+
+// Массивы структур
+Point points[2] = {{1, 2}, {3, 4}}; // points[0]=(1, 2), points[1]=(3, 4)
+
+// Передача структур в функции
+void print_point(Point p) {
+    // p=(10, 20)
+}
+
+print_point(p2);
+
+// Возврат структуры из функции
+Point create_point(int x, int y) {
+    return (Point){x, y};
+}
+
+Point p3 = create_point(40, 50); // p3=(40, 50)
+
+// Битовые поля в структурах
+typedef struct {
+    unsigned int is_red : 1;
+    unsigned int is_green : 1;
+    unsigned int is_blue : 1;
+} Flags;
+
+Flags flags = {1, 0, 1}; // flags=(is_red=1, is_green=0, is_blue=1)
+
+// Анонимные структуры
+struct {
+    int x;
+    int y;
+} p5 = {80, 90}, p6 = {100, 110}; // p5=(80, 90), p6=(100, 110)
+
+// Анонимные члены структуры
+typedef struct {
+    struct {
+        int x;
+        int y;
+    };
+    int radius;
+} Circle;
+
+Circle c = {{120, 130}, 5}; // c=(center=(120, 130), radius=5)
+
+// Использование typedef с именем структуры
+typedef struct {
+    char first[20];
+    char last[20];
+} Name;
+
+Name person = {"John", "Doe"}; // person=(first="John", last="Doe")
+
+// Использование typedef с вложенными структурами
+typedef struct {
+    int day;
+    int month;
+    int year;
+} Date;
+
+typedef struct {
+    char name[50];
+    Date birthdate;
+} Person;
+
+Person person1 = {"Alice", {1, 1, 1990}}; // person1=(name="Alice", birthdate=(1, 1, 1990))
+
+// Использование typedef с массивами структур
+typedef struct {
+    int x;
+    int y;
+} Coordinate;
+
+Coordinate coordinates[3] = {{1, 2}, {3, 4}, {5, 6}}; // coordinates=(0=(1, 2), 1=(3, 4), 2=(5, 6))
+
+// Использование typedef с указателями на структуры
+typedef struct {
+    int id;
+    char name[50];
+} Product;
+
+Product product = {101, "Laptop"}; // product=(id=101, name="Laptop")
+Product *product_ptr = &product; // product_ptr=(id=101, name="Laptop")
+
+// Использование typedef с битовыми полями
+typedef struct {
+    unsigned int is_active : 1;
+    unsigned int is_admin : 1;
+} UserFlags;
+
+UserFlags user = {1, 0}; // user=(is_active=1, is_admin=0)
+
+// Использование typedef с анонимными членами структуры
+typedef struct {
+    struct {
+        int x;
+        int y;
+    };
+    int radius;
+} CircleTypedef;
+
+CircleTypedef circle = {{200, 210}, 10}; // circle=(center=(200, 210), radius=10)
+```
+
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
 - 🖼️[1_hello_world](https://eios.sibsutis.ru/mod/resource/view.php?id=161567)
