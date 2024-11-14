@@ -19,3 +19,8 @@ Desktop.ini
 **/Debug/
 **/Release/
 /.vscode
+
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
