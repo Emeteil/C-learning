@@ -1,7 +1,7 @@
 all: main
 
 main: main_task_4_for_5.o math_for_time.o rand_time_generate.o
-	gcc main_task_4_for_5.o math_for_time.o rand_time_generate.o ; rm -rf *.o
+	gcc main_task_4_for_5.o math_for_time.o rand_time_generate.o -o Build/a.out ; rm -rf *.o
 
 main_task_4_for_5.o: main_task_4_for_5.c time_functions.h
 	gcc -c main_task_4_for_5.c

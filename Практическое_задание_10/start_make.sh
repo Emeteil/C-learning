@@ -1,2 +1,2 @@
-make -f MF;
-./a.out;
+make -f MakeFile;
+Build/a.out;

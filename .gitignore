@@ -20,7 +20,7 @@ Desktop.ini
 **/Release/
 /.vscode
 
+Build/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-Makefile
