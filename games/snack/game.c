@@ -86,29 +86,6 @@ Rating game(size_t game_field_size) {
                 .leaght = length
             };
 
-        for (int i = 0; i < game_field_size; i++)
-            for (int j = 0; j < game_field_size; j++)
-                if (matrix[i][j] != 0 & matrix[i][j] != -1)
-                    matrix[i][j]--;
-        
-        int count_zero = 0;
-        for (int i = 0; i < game_field_size; i++)
-            for (int j = 0; j < game_field_size; j++)
-                if (!matrix[i][j]) count_zero++;
-
-        int indexs[count_zero][2];
-        int index = 0;
-        for (int i = 0; i < game_field_size; i++)
-            for (int j = 0; j < game_field_size; j++)
-                if (!matrix[i][j]) {
-                    indexs[index][0] = i;
-                    indexs[index][1] = j;
-                    index++;
-                }
-        
-        index = random_int(0, count_zero - 1);
-        matrix[indexs[index][0]][indexs[index][1]] = -1;
-
         print_game_field(game_field_size, game_field_size, matrix);
         sleep(1);
     }
@@ -118,3 +95,47 @@ Rating game(size_t game_field_size) {
         .leaght = length
     };
 }
+
+
+// switch (matrix[next_i][next_j]) {
+//     case -1: {
+//         length++;
+//         matrix[next_i][next_j] = length;
+//         for (int i = 0; i < game_field_size; i++)
+//             for (int j = 0; j < game_field_size; j++)
+//                 if (matrix[i][j] != 0 && matrix[i][j] != -1)
+//                     matrix[i][j]++;
+//         for (int i = 0; i < game_field_size; i++)
+//             for (int j = 0; j < game_field_size; j++)
+//                 if (matrix[i][j] != 0 & matrix[i][j] != -1)
+//                     matrix[i][j]--;
+        
+//         int count_zero = 0;
+//         for (int i = 0; i < game_field_size; i++)
+//             for (int j = 0; j < game_field_size; j++)
+//                 if (!matrix[i][j]) count_zero++;
+
+//         // Declare the VLA outside the loop
+//         int indexs[count_zero][2];
+//         int index = 0;
+//         for (int i = 0; i < game_field_size; i++)
+//             for (int j = 0; j < game_field_size; j++)
+//                 if (!matrix[i][j]) {
+//                     indexs[index][0] = i;
+//                     indexs[index][1] = j;
+//                     index++;
+//                 }
+        
+//         index = random_int(0, count_zero - 1);
+//         matrix[indexs[index][0]][indexs[index][1]] = -1;
+//         break;
+//     }
+//     case 0:
+//         matrix[next_i][next_j] = length + 1;
+//         break;
+//     default:
+//         return (Rating){
+//             .win = 0,
+//             .leaght = length
+//         };
+// }
