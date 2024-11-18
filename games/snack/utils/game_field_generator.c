@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "../header.h"
 
-void fill_matrix(size_t rows, size_t cols, char matrix[rows][cols]) {
+void fill_matrix(size_t rows, size_t cols, int matrix[rows][cols]) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < rows; j++) {
             matrix[i][j] = 0;

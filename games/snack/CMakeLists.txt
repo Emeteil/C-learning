@@ -6,7 +6,7 @@ set(SOURCE_EXE main.c)
 
 file(GLOB SOURCE_LIB "utils/*.c")
 
-add_library(MY_LIB ${SOURCE_LIB})
+add_library(MY_LIB ${SOURCE_LIB} game.c)
 
 add_executable(a.out ${SOURCE_EXE})
 

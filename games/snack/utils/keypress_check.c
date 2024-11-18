@@ -3,6 +3,7 @@
 #include <termios.h>
 #include <fcntl.h>
 
+// Реализация из conio.h 
 int kbhit() {
     struct termios oldt, newt;
     int ch;
