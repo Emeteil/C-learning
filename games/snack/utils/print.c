@@ -11,10 +11,10 @@ void print_game_field(size_t rows, size_t cols, int matrix[rows][cols]) {
                     printf("🍎 ");
                     break;
                 case 0:
-                    printf(". ");
+                    printf("🐾 ");
                     break;
                 default:
-                    printf("# ");
+                    printf("🐍 ");
                     break;
             }
         }
