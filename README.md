@@ -258,120 +258,258 @@ free(new_ptr);
 new_ptr = NULL;
 ```
 
-## Structures in C
+## Functions in C
 ```c
-// Определение структуры Point
-typedef struct {
-    int x;
-    int y;
-} Point;
-
-// Инициализация структуры Point
-Point p1 = {5, 15}; // p1=(5, 15)
-Point p2 = {10, 20}; // p2=(10, 20)
-
-// Указатели на структуры
-Point *p_ptr = &p1;
-p_ptr->x = 25;
-p_ptr->y = 35; // p1=(25, 35)
-
-// Вложенные структуры
-typedef struct {
-    Point top_left;
-    Point bottom_right;
-} Rectangle;
-
-Rectangle rect = {{10, 20}, {30, 40}}; // rect=(top_left=(10, 20), bottom_right=(30, 40))
-
-// Массивы структур
-Point points[2] = {{1, 2}, {3, 4}}; // points[0]=(1, 2), points[1]=(3, 4)
-
-// Передача структур в функции
-void print_point(Point p) {
-    // p=(10, 20)
+// Пример функции, которая возвращает факториал числа
+int factorial(int N) {
+    if (N < 1) return 1; 
+    return N * factorial(N - 1);
 }
 
-print_point(p2);
-
-// Возврат структуры из функции
-Point create_point(int x, int y) {
-    return (Point){x, y};
+// Пример нерекурсивной функции для вычисления факториала
+int factorial_non_recursive(int N) {
+    int res = 1;
+    for (int i = N; i > 1; i--) {
+        res = res * i;
+    }
+    return res;
 }
 
-Point p3 = create_point(40, 50); // p3=(40, 50)
+// Пример вызова функций
+int n = factorial(5);  // n будет равно 120
+int m = factorial_non_recursive(5);  // m также будет равно 120
 
-// Битовые поля в структурах
+// Пример функции с указателями
+void swap(int *ptr1, int *ptr2) {
+    int temp = *ptr1;
+    *ptr1 = *ptr2;
+    *ptr2 = temp;
+}
+
+int a = 5, b = 10;
+swap(&a, &b);  // Теперь a = 10, b = 5
+
+// Пример функции с передачей результата через указатель
+void add(int a, int b, int *res) {
+    *res = a + b;
+}
+
+int result;
+add(5, 3, &result);  // result будет равен 8
+
+// Пример функции с возвратом значения
+int sum(int a, int b) {
+    return a + b;
+}
+
+int total = sum(5, 3);  // total будет равен 8
+
+// !!! НЕПРАВИЛЬНЫЙ ПРИМЕР !!!
+// Пример функции с висячим указателем
+char *f() {
+    char s = 'A';
+    return &s;  // Возвращает адрес локальной переменной, которая будет уничтожена после выхода из функции
+}
+
+// !!! НЕПРАВИЛЬНЫЙ ПРИМЕР !!!
+// Использование висячего указателя
+char *a = f();  // a будет указывать на невалидный адрес
+// Использование a может привести к неопределенному поведению
+
+// Пример использования указателя на функцию
+int (*cipher_func)(int, char *);
+
+int cipher1(int key, char *text) {
+    // Реализация шифрования
+}
+
+cipher_func = cipher1;
+cipher_func(420, "sample text");  // Вызов функции через указатель
+
+// Пример массива указателей на функции
+float (*dfts_fun[])(float, int) = { dft128, dft256, dft512, dft1024 };
+float b = dfts_fun[2](5.5, 4);  // Вызов функции dft512
+
+// Пример функции обратного вызова (callback)
+void filter(int size_in, const int in[], int size_out, int out[], int (*condition_func)(int)) {
+    for (int i = 0; i < size_in; i++) {
+        if (condition_func(in[i])) {
+            out[i] = in[i];
+        }
+    }
+}
+
+int is_even(int num) {
+    return num % 2 == 0;
+}
+
+int A[] = {1, 2, 3, 4, 5};
+int B[5];
+filter(5, A, 5, B, is_even);  // Фильтрация четных чисел
+
+// Пример вариативной функции (variadic function)
+#include <stdarg.h>
+
+int my_log_print(char *format, ...) {
+    va_list args;
+    va_start(args, format);
+    // Использование args для доступа к аргументам
+    va_end(args);
+    return 0;
+}
+
+// Пример использования вариативной функции
+my_log_print("Error at LINE=%d, FILE=%s, function=%s", __LINE__, __FILE__, __FUNCTION__);
+```
+
+## Preprocessor in C
+```c
+// Директива #include
+#include <stdio.h>  // Подключение стандартной библиотеки ввода-вывода
+#include "my_header.h"  // Подключение пользовательского заголовочного файла
+
+// Директива #define для определения констант и макросов
+#define PI 3.14159  // Определение константы
+#define MIN(a, b) ((a) < (b) ? (a) : (b))  // Определение макроса
+
+// Пример использования макроса
+int x = 5, y = 10;
+int min_value = MIN(x, y);  // min_value будет равен 5
+
+// Условная компиляция
+#define DEBUG 1
+
+#if DEBUG == 1
+    printf("Debug mode is on\n");
+#else
+    printf("Debug mode is off\n");
+#endif
+
+// Проверка на наличие/отсутствие макроса
+#ifdef DEBUG
+    printf("Debug is defined\n");
+#endif
+
+#ifndef DEBUG
+    printf("Debug is not defined\n");
+#endif
+
+// Защита от повторного включения заголовочных файлов
+#ifndef _MY_HEADER_H_
+#define _MY_HEADER_H_
+// Содержимое заголовочного файла
+#endif // _MY_HEADER_H_
+
+// Предопределенные константы препроцессора
+printf("Line: %d, File: %s, Function: %s\n", __LINE__, __FILE__, __FUNCTION__);
+printf("Compilation date: %s, time: %s\n", __DATE__, __TIME__);
+```
+
+## Structures, Unions, and Enums in C
+```c
+// Пример структуры (struct)
+struct complex {
+    int re;  // Реальная часть
+    int im;  // Мнимая часть
+};
+
+struct complex my_complex;
+my_complex.re = -5;
+my_complex.im = 6;
+
+// Пример массива структур
+struct animal {
+    char *name;
+    int age;
+};
+
+struct animal dogs[3];
+dogs[0].name = "Muhtar";
+dogs[0].age = 5;
+
+struct animal cats[] = {{"Tom", 5}, {"Felix", 4}, {"Mango", 3}};
+
+// Пример указателя на структуру
+struct test {
+    char a;
+    int b;
+};
+
+struct test a;
+struct test *ptr = &a;
+ptr->a = 'A';  // Использование оператора ->
+(*ptr).b = 555;  // Альтернативный способ доступа через разыменование
+
+// Пример битовых полей в структуре
+struct byte {
+    unsigned char b0:1;
+    unsigned char b1:1;
+    unsigned char b2:1;
+    unsigned char b3:1;
+    unsigned char b4:1;
+    unsigned char b5:1;
+    unsigned char b6:1;
+    unsigned char b7:1;
+};
+
+char a = 0b00010001;  // 17
+struct byte *bits = (struct byte *)&a;
+bits->b0 = 0;  // Изменение первого бита числа a
+
+// Битовые поля позволяют экономить память, упаковывая несколько переменных в один байт.
+// Например, структура byte использует 8 битовых полей, каждое из которых занимает 1 бит.
+// Это позволяет хранить 8 логических значений (0 или 1) в одном байте.
+
+// Пример объединения (union)
+union test_union {
+    char a;
+    int b;
+};
+
+union test_union test;
+test.a = 'A';
+test.b = 12345;  // Теперь test.a будет содержать младший байт числа 12345
+
+// Объединения позволяют хранить разные типы данных в одной и той же области памяти.
+// В примере выше, test.a и test.b разделяют одну и ту же область памяти.
+// Когда мы присваиваем значение test.b, test.a будет содержать младший байт этого значения.
+
+// Пример перечисления (enum)
+enum colors {
+    RED,    // 0
+    GREEN,  // 1
+    BLUE = 5,  // 5
+    ORANGE  // 6
+};
+
+enum colors my_color = GREEN;
+switch (my_color) {
+    case RED:
+        printf("Color is red\n");
+        break;
+    case GREEN:
+        printf("Color is green\n");
+        break;
+    default:
+        printf("Unknown color\n");
+}
+
+// Перечисления позволяют создавать именованные константы, что делает код более читаемым и понятным.
+// В примере выше, RED, GREEN, BLUE и ORANGE являются константами, которые можно использовать вместо чисел.
+
+// Пример использования typedef
+typedef unsigned int uint;
+uint a;  // Теперь uint эквивалентно unsigned int
+
 typedef struct {
-    unsigned int is_red : 1;
-    unsigned int is_green : 1;
-    unsigned int is_blue : 1;
-} Flags;
+    int age;
+    char name[64];
+} cat_t;
 
-Flags flags = {1, 0, 1}; // flags=(is_red=1, is_green=0, is_blue=1)
+cat_t my_cat = {3, "Mango"};
 
-// Анонимные структуры
-struct {
-    int x;
-    int y;
-} p5 = {80, 90}, p6 = {100, 110}; // p5=(80, 90), p6=(100, 110)
-
-// Анонимные члены структуры
-typedef struct {
-    struct {
-        int x;
-        int y;
-    };
-    int radius;
-} Circle;
-
-Circle c = {{120, 130}, 5}; // c=(center=(120, 130), radius=5)
-
-// Использование typedef с именем структуры
-typedef struct {
-    char first[20];
-    char last[20];
-} Name;
-
-Name person = {"John", "Doe"}; // person=(first="John", last="Doe")
-
-// Использование typedef с вложенными структурами
-typedef struct {
-    int day;
-    int month;
-    int year;
-} Date;
-
-typedef struct {
-    char name[50];
-    Date birthdate;
-} Person;
-
-Person person1 = {"Alice", {1, 1, 1990}}; // person1=(name="Alice", birthdate=(1, 1, 1990))
-
-// Использование typedef с массивами структур
-typedef struct {
-    int x;
-    int y;
-} Coordinate;
-
-Coordinate coordinates[3] = {{1, 2}, {3, 4}, {5, 6}}; // coordinates=(0=(1, 2), 1=(3, 4), 2=(5, 6))
-
-// Использование typedef с указателями на структуры
-typedef struct {
-    int id;
-    char name[50];
-} Product;
-
-Product product = {101, "Laptop"}; // product=(id=101, name="Laptop")
-Product *product_ptr = &product; // product_ptr=(id=101, name="Laptop")
-
-// Использование typedef с битовыми полями
-typedef struct {
-    unsigned int is_active : 1;
-    unsigned int is_admin : 1;
-} UserFlags;
-
-UserFlags user = {1, 0}; // user=(is_active=1, is_admin=0)
+// typedef позволяет создавать псевдонимы для типов данных, что упрощает их использование.
+// В примере выше, cat_t является псевдонимом для структуры, содержащей возраст и имя кота.
 
 // Использование typedef с анонимными членами структуры
 typedef struct {
@@ -384,6 +522,86 @@ typedef struct {
 
 CircleTypedef circle = {{200, 210}, 10}; // circle=(center=(200, 210), radius=10)
 ```
+
+## Makefile
+```makefile
+# Цель по умолчанию, которая будет выполнена, если вы запустите `make` без аргументов.
+# Она зависит от цели `main`.
+all: main
+
+# Цель для сборки исполняемого файла `main`.
+# Зависит от объектных файлов `main_task_4_for_5.o`, `math_for_time.o`, и `rand_time_generate.o`.
+main: main_task_4_for_5.o math_for_time.o rand_time_generate.o
+	# Компилируем объектные файлы в исполняемый файл `Build/a.out`.
+	# После сборки удаляем все объектные файлы (`.o`).
+	gcc main_task_4_for_5.o math_for_time.o rand_time_generate.o -o Build/a.out ; rm -rf *.o
+
+# Цель для сборки объектного файла `main_task_4_for_5.o`.
+# Зависит от исходного файла `main_task_4_for_5.c` и заголовочного файла `time_functions.h`.
+main_task_4_for_5.o: main_task_4_for_5.c time_functions.h
+	# Компилируем `main_task_4_for_5.c` в объектный файл `main_task_4_for_5.o`.
+	gcc -c main_task_4_for_5.c
+
+# Цель для сборки объектного файла `rand_time_generate.o`.
+# Зависит от исходного файла `functions/rand_time_generate.c` и заголовочного файла `time_functions.h`.
+rand_time_generate.o: functions/rand_time_generate.c time_functions.h
+	# Компилируем `functions/rand_time_generate.c` в объектный файл `rand_time_generate.o`.
+	gcc -c functions/rand_time_generate.c
+
+# Цель для сборки объектного файла `math_for_time.o`.
+# Зависит от исходного файла `functions/math_for_time.c` и заголовочного файла `time_functions.h`.
+math_for_time.o: functions/math_for_time.c time_functions.h
+	# Компилируем `functions/math_for_time.c` в объектный файл `math_for_time.o`.
+	gcc -c functions/math_for_time.c
+```
+
+## CMakeLists.txt
+```cmake
+# Устанавливаем минимальную требуемую версию CMake.
+# В данном случае это версия 3.10.
+cmake_minimum_required(VERSION 3.10)
+
+# Создаем проект с именем "Практическое_задание_10".
+project(Практическое_задание_10)
+
+# Устанавливаем переменную SOURCE_EXE, которая содержит имя основного исходного файла.
+set(SOURCE_EXE main_task_4_for_5.c)
+
+# Используем команду file(GLOB ...) для поиска всех исходных файлов в директории "functions".
+# Результат сохраняем в переменной SOURCE_LIB.
+file(GLOB SOURCE_LIB "functions/*.c")
+
+# Создаем статическую библиотеку с именем MY_LIB, используя найденные исходные файлы.
+add_library(MY_LIB ${SOURCE_LIB})
+
+# Создаем исполняемый файл с именем a.out, используя основной исходный файл.
+add_executable(a.out ${SOURCE_EXE})
+
+# Линкуем исполняемый файл a.out с библиотекой MY_LIB.
+target_link_libraries(a.out MY_LIB)
+
+# ------------------------------------------
+# !!! Примеры со сторонними библиотеками !!!
+
+# Найти библиотеку SDL2
+find_package(SDL2 REQUIRED)
+
+# Связать библиотеку MY_LIB с исполняемым файлом
+target_link_libraries(a.out MY_LIB)
+
+# Связать библиотеку SDL2 с исполняемым файлом
+target_link_libraries(a.out SDL2::SDL2)
+
+# Для других зависимостей
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
+
+target_link_libraries(a.out SDL2::SDL2 SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL2_mixer)
+```
+### Подробнее про Make и CMake:
+ - [Habr.com](https://habr.com/ru/articles/155201)
+ - [C-Programming/13_make_cmake](https://github.com/kruffka/C-Programming/tree/master/2023-2024/13_make_cmake)
 
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
@@ -406,7 +624,11 @@ CircleTypedef circle = {{200, 210}, 10}; // circle=(center=(200, 210), radius=10
 - 🖼️[5.2_dynamic_arrays](https://eios.sibsutis.ru/mod/resource/view.php?id=165917)
 - 📄[Доп. задание под *: Улитка](https://eios.sibsutis.ru/mod/resource/view.php?id=166167)
 - 🖼️[6_functions_p2](https://eios.sibsutis.ru/mod/resource/view.php?id=165946)
+- 🖼️[6.1_preprocessor](https://eios.sibsutis.ru/mod/resource/view.php?id=166863)
 - 📄[Практическое задание 9. Функции](https://eios.sibsutis.ru/mod/resource/view.php?id=165933)
+- 📄[Доп. задание под *: Рекурсия](https://eios.sibsutis.ru/mod/resource/view.php?id=166502)
+- 🖼️[7_struct_union](https://eios.sibsutis.ru/mod/resource/view.php?id=166867)
+- 📄[Практическое задание 10. Структуры данных.](https://eios.sibsutis.ru/mod/resource/view.php?id=166506)
 
 ## 📚 List of Literature
 
@@ -482,3 +704,4 @@ CircleTypedef circle = {{200, 210}, 10}; // circle=(center=(200, 210), radius=10
   [Go to Codeforces](https://codeforces.com/)
 
 ---
+<br>*Если у вас есть идеи по улучшению этого README.md, не стесняйтесь отправлять `Pull requests`!*
