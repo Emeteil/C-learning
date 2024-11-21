@@ -14,12 +14,12 @@ int list_enlargement(int **matrix, int index, int *capacity) {
 int *converter(size_t str_len, char str[str_len], int* len) {
     int capacity = 1;
 
-    int* matrix = (int*)malloc(capacity * sizeof(int*));
+    int *matrix = (int*)malloc(capacity * sizeof(int));
     if (matrix == NULL) return NULL;
 
     int index = 0;
 
-    char* token = strtok(str, ",");
+    char *token = strtok(str, ",");
     while (token != NULL) {
         char* separator = strchr(token, '-');
         if (separator == NULL) {
@@ -58,12 +58,8 @@ int *converter(size_t str_len, char str[str_len], int* len) {
 }
 
 void main(int argc, char *argv[]) {
-    char input_str[] = "1-6,8-9,11";
-    if (argc >= 2)
-        strncpy(input_str, argv[1], strlen(input_str));
-
     int len = 0;
-    int* ints = converter(strlen(input_str), input_str, &len);
+    int* ints = converter(strlen(argv[1]), argv[1], &len);
 
     for (int i = 0; i < len; i++)
         printf("%d ", ints[i]);
