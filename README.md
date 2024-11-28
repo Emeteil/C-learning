@@ -629,6 +629,7 @@ target_link_libraries(a.out SDL2::SDL2 SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL
 - 📄[Доп. задание под *: Рекурсия](https://eios.sibsutis.ru/mod/resource/view.php?id=166502)
 - 🖼️[7_struct_union](https://eios.sibsutis.ru/mod/resource/view.php?id=166867)
 - 📄[Практическое задание 10. Структуры данных.](https://eios.sibsutis.ru/mod/resource/view.php?id=166506)
+- 📄[Практическое задание 11. Отладчик GDB](https://eios.sibsutis.ru/mod/resource/view.php?id=167621)
 
 ## 📚 List of Literature
 
