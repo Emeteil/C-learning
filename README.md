@@ -602,6 +602,7 @@ target_link_libraries(a.out SDL2::SDL2 SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL
 ### Подробнее про Make и CMake:
  - [Habr.com](https://habr.com/ru/articles/155201)
  - [C-Programming/13_make_cmake](https://github.com/kruffka/C-Programming/tree/master/2023-2024/13_make_cmake)
+ - [Make/Cmake MD](https://github.com/kruffka/C-Programming/blob/master/2024-2025/slides_pptx/9_make_cmake.md)
 
 ## Files for works:
 - 🖼️[0_introduction](https://eios.sibsutis.ru/mod/resource/view.php?id=161078)
