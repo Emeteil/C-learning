@@ -149,6 +149,25 @@ while (token != NULL) {
     token = strtok(NULL, " ");  // Получение следующего токена
 }
 
+// Чтобы использовать внешнюю переменную указателя вместо статической в strtok можно использовать strtok_r
+char str[] = "1,2,3|4,5,6|7,8,9";
+char *saveptr1, *saveptr2;
+char *token;
+// Разделяем строку по |
+token = strtok_r(str, "|", &saveptr1);
+while (token != NULL) {
+    printf("Sub-string: %s\n", token);
+    // Разделяем текущую подстроку по ,
+    char *sub_token = strtok_r(token, ",", &saveptr2);
+    while (sub_token != NULL) {
+        printf("  Token: %s\n", sub_token);
+        sub_token = strtok_r(NULL, ",", &saveptr2);
+    }
+    // Переходим к следующей подстроке
+    token = strtok_r(NULL, "|", &saveptr1);
+}
+// Если использовать стандартный strtok, то подобное действие выполнить не получчится
+
 // Возвращает длину строки
 char str[] = "Hello, World!";
 size_t length = strlen(str);  // length = 13
