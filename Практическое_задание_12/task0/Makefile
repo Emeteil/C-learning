@@ -4,7 +4,8 @@
 all: main
 
 main: app.o background.o read_pipe.o write_pipe.o
-	gcc app.o background.o read_pipe.o write_pipe.o ; rm -rf *.o
+	gcc app.o background.o read_pipe.o write_pipe.o
+	rm -rf *.o
 
 app.o: app/main.c background/background.h
 	gcc -Ibackground -c app/main.c -o app.o
