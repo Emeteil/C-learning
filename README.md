@@ -677,7 +677,7 @@ void add(int *restrict p1, int *restrict p2, int *restrict val) {
 }
 
 // Пример использования volatile
-volatile int flag = 0; // Переменная может измениться вне зависимости от программы(нужно для оптимизации)
+volatile int flag = 0; // Переменная может измениться вне зависимости от программы(к примеру в другом потоке)
 
 int main() {
     while (flag == 0) {
