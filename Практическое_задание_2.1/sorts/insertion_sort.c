@@ -9,20 +9,21 @@
 
 // 4) Повторяем шаги 2 и 3 для всех элементов массива, пока весь массив не станет отсортированным.
 
-// 5
-// 5, 7, 7, 1, 9
-// 0, 0, 0, 0, 0
-// 5, 0, 0, 0, 0
-// 5, 7, 3
+// https://www.youtube.com/watch?v=Q1JdRUh1_98
 
-void insertionSort(Student list[], int N) {
+void _swap(Student *a, Student *b) {
+    Student tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+// O(n^2)
+void insertionSort(Student list[], size_t N, int (*func)(Student, Student)) {
     for (int i = 1; i < N; i++) {
-        Student i_element = list[i];
-        int j = i - 1;
-
-        for (; j >= 0 && list[j].total_score > i_element.total_score; j--) {
-            list[j + 1] = list[j];
+        for (int j = i; j > 0; j--) {
+            if (func(list[j], list[j - 1])) break;
+            
+            _swap(&list[j], &list[j - 1]);
         }
-        list[j + 1] = i_element;
     }
 }

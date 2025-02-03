@@ -7,7 +7,7 @@ include_directories(${CMAKE_SOURCE_DIR}) # without ../header.h
 
 file(GLOB SOURCE_LIB "sorts/*.c")
 
-add_library(MY_LIB ${SOURCE_LIB} student_funcs.c)
+add_library(MY_LIB ${SOURCE_LIB} funcs.c)
 
 add_executable(a.out main.c)
 
