@@ -693,6 +693,40 @@ auto int x = 10; // Эквивалентно int x = 10;
 register int counter = 0; // Предложение компилятору разместить переменную в регистре
 ```
 
+## Списки
+```c
+// Односвязный список (Singly Linked List)
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node* insert(Node* head, int value) { // Пример создания элемента
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = value;
+    newNode->next = head;
+    return newNode;
+}
+
+// Двусвязный список (Doubly Linked List)
+typedef struct DNode {
+    int data;
+    struct DNode* next;
+    struct DNode* prev;
+} DNode;
+
+DNode* insert(DNode* head, int value) { // Пример создания элемента
+    DNode* newNode = (DNode*)malloc(sizeof(DNode));
+    newNode->data = value;
+    newNode->next = head;
+    newNode->prev = NULL;
+    if (head != NULL) {
+        head->prev = newNode;
+    }
+    return newNode;
+}
+```
+
 ### Подробнее про Make и CMake:
  - [Habr.com](https://habr.com/ru/articles/155201)
  - [C-Programming/13_make_cmake](https://github.com/kruffka/C-Programming/tree/master/2023-2024/13_make_cmake)
