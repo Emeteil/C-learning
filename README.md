@@ -701,11 +701,18 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-Node* insert(Node* head, int value) { // Пример создания элемента
+Node* insert(Node* head, int value) { // Пример создания первого элемента
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = value;
     newNode->next = head;
     return newNode;
+}
+
+Node* append(Node* head, int value) { // Добавление в конец
+    while (head->next != NULL)
+        head = head->next;
+    head->next = insert(NULL, value);
+    return head;
 }
 
 // Двусвязный список (Doubly Linked List)
@@ -715,7 +722,7 @@ typedef struct DNode {
     struct DNode* prev;
 } DNode;
 
-DNode* insert(DNode* head, int value) { // Пример создания элемента
+DNode* insert(DNode* head, int value) { // Пример создания первого элемента
     DNode* newNode = (DNode*)malloc(sizeof(DNode));
     newNode->data = value;
     newNode->next = head;
