@@ -6,6 +6,7 @@
 // insertionSort (USE_COMPARE_FUNC 1)
 // сountingSort (USE_COMPARE_FUNC 0)
 // quickSort (USE_COMPARE_FUNC 1)
+// bogoSort (USE_COMPARE_FUNC 1)
 
 #define USE_COMPARE_FUNC 1
 #define COMPARE_FUNC compareElementsTotalScore
@@ -26,6 +27,10 @@
 // quickSort N=100 - 0.000021 секунд
 // quickSort N=10000 - 0.009189 секунд
 // quickSort N=100000 - 0.566445 секунд
+
+// bogoSort N=100 - много секунд
+// bogoSort N=10000 - очень много секунд
+// bogoSort N=100000 - нереально много секунд
 
 int compareElementsTotalScore(Student a, Student b) {
     return (a.total_score < b.total_score);
