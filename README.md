@@ -774,6 +774,11 @@ DNode* insert(DNode* head, int value) { // Пример создания пер�
 - 🗄️[Практическое задание 12. make, cmake. .zip архив](https://eios.sibsutis.ru/mod/resource/view.php?id=168443)
 - 📄[Практическое задание 12. make, cmake. Ссылкой на гит](https://github.com/kruffka/C-Programming/tree/master/2024-2025/9_make_cmake/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%2012)
 - 📄[Алгоритмы и их сложность. Big O notationГиперссылка](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/bigO.md)
+- 🖼️[Слайды по сложности алгоритмов](https://eios.sibsutis.ru/mod/resource/view.php?id=172069))
+- 📄[Списки. Очередь и Стек](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/Linked_lists.md)
+- 🖼️[Слайды по спискам (Singly, Doubly, Circular), а также Stack и Queue](https://eios.sibsutis.ru/mod/resource/view.php?id=172166)
+- 📄[Сем.2, Практическое 1. Сортировки](https://eios.sibsutis.ru/mod/resource/view.php?id=171202)
+- 📄[Сем.2, Практическая 2. Списки](https://eios.sibsutis.ru/mod/resource/view.php?id=172068)
 
 ## 📚 List of Literature
 
