@@ -776,7 +776,7 @@ DNode* insert(DNode* head, int value) { // Пример создания пер�
 - 📄[Алгоритмы и их сложность. Big O notationГиперссылка](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/bigO.md)
 - 🖼️[Слайды по сложности алгоритмов](https://eios.sibsutis.ru/mod/resource/view.php?id=172069))
 - 📄[Списки. Очередь и Стек](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/Linked_lists.md)
-- 🖼️[Слайды по спискам (Singly, Doubly, Circular), а также Stack и Queue](https://eios.sibsutis.ru/mod/resource/view.php?id=172166)
+- 🖼️[Слайды по спискам Singly, Doubly, Circular, а также Stack и Queue](https://eios.sibsutis.ru/mod/resource/view.php?id=172166)
 - 📄[Сем.2, Практическое 1. Сортировки](https://eios.sibsutis.ru/mod/resource/view.php?id=171202)
 - 📄[Сем.2, Практическая 2. Списки](https://eios.sibsutis.ru/mod/resource/view.php?id=172068)
 
