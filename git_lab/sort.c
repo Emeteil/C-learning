@@ -4,6 +4,8 @@ void _swap(Student *a, Student *b) {
     *b = tmp;
 }
 
+// new comment
+
 // O(n^2)
 void insertionSort(Student list[], size_t N, int (*func)(Student, Student)) {
     for (int i = 1; i < N; i++) {
