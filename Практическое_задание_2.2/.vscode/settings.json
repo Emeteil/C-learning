@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "ctype.h": "c",
+        "doubly_linked_int_list.h": "c",
+        "console_utils.h": "c",
+        "complex_construction.h": "c",
+        "singly_linked_int_list.h": "c",
+        "stdio.h": "c",
+        "complex_construction_funcs.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
