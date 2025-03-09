@@ -1,0 +1,3 @@
+[submodule "git_lab/anicli_api_anigo_auth"]
+	path = git_lab/anicli_api_anigo_auth
+	url = https://github.com/Emeteil/anicli_api_anigo_auth
