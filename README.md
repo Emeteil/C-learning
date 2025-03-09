@@ -811,6 +811,12 @@ git log --author="Имя" # Показывает коммиты определе
 git log --since="2023-01-01" # Показывает коммиты начиная с указанной даты
 git log --until="2023-12-31" # Показывает коммиты до указанной даты
 git log --grep="pattern" # Показывает коммиты, содержащие указанный паттерн в сообщении
+
+# Сабмодули
+git submodule add <url> <folder> # Добавить сабмодуль в папку
+git submodule init # Инициализация сабмодулей, к примеру после git clone
+git submodule update # Обновление сабмодулей, к примеру после git clone
+git clone --recurse-submodules <url> # Клонирование репозитория вместе с сабмодулями
 ```
 
 ### Подробнее про Make и CMake:
@@ -853,11 +859,14 @@ git log --grep="pattern" # Показывает коммиты, содержащ
 - 🗄️[Практическое задание 12. make, cmake. .zip архив](https://eios.sibsutis.ru/mod/resource/view.php?id=168443)
 - 📄[Практическое задание 12. make, cmake. Ссылкой на гит](https://github.com/kruffka/C-Programming/tree/master/2024-2025/9_make_cmake/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%2012)
 - 📄[Алгоритмы и их сложность. Big O notationГиперссылка](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/bigO.md)
-- 🖼️[Слайды по сложности алгоритмов](https://eios.sibsutis.ru/mod/resource/view.php?id=172069))
+- 🖼️[Слайды по сложности алгоритмов](https://eios.sibsutis.ru/mod/resource/view.php?id=172069)
 - 📄[Списки. Очередь и Стек](https://github.com/kruffka/C-Programming/blob/master/2024-2025/algrorithms/Linked_lists.md)
 - 🖼️[Слайды по спискам Singly, Doubly, Circular, а также Stack и Queue](https://eios.sibsutis.ru/mod/resource/view.php?id=172166)
 - 📄[Сем.2, Практическое 1. Сортировки](https://eios.sibsutis.ru/mod/resource/view.php?id=171202)
 - 📄[Сем.2, Практическая 2. Списки](https://eios.sibsutis.ru/mod/resource/view.php?id=172068)
+- 📄[Сем.2, Практическое 3. Git](https://eios.sibsutis.ru/mod/resource/view.php?id=173509)
+- 🖼️[Слайды по Git](https://eios.sibsutis.ru/mod/resource/view.php?id=173507)
+- 📄[Лекция Git](https://eios.sibsutis.ru/mod/url/view.php?id=173508)
 
 ## 📚 List of Literature
 
