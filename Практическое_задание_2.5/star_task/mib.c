@@ -54,9 +54,9 @@ void print_bits(int value, int numBits) {
 }
 
 void print_MIB_t(MIB_t mib_t) {
-    printf("systemFrameNumber: ");
-    print_bits(mib_t.systemFrameNumber, 6);
-    puts("");
+    printf("systemFrameNumber: %d\n", mib_t.systemFrameNumber);
+    // print_bits(mib_t.systemFrameNumber, 6);
+    // puts("");
     
     printf("subCarrierSpacingCommon: %s\n", mib_t.subCarrierSpacingCommon ? "scs30or120" : "scs15or60");
     printf("ssb_SubcarrierOffset: %u\n", mib_t.ssb_SubcarrierOffset);
@@ -72,8 +72,6 @@ int main(int argc, char *argv[]) {
         printf("Usage: ./mib bin_file\n");
         exit(1);
     }
-
-    MIB_LIST_t mib_list;
     
     // считать из бинарного файла байты и выяснить значения полей структуры
     FILE *file = fopen(argv[1], "rb");
@@ -81,13 +79,9 @@ int main(int argc, char *argv[]) {
         printf("Error reading file\n");
         exit(1);
     }
-    
-    MIB_t current_MIB_t;
-    int i = 0;
-    while (i < MAX_NOF_MIB - 1 && fread(&mib_list.mib[i], sizeof(MIB_t), 1, file) > 0) {
-        i++;
-    }
-    mib_list.nof_mibs = i + 1;
+
+    MIB_LIST_t mib_list;
+    fread(&mib_list, sizeof(MIB_LIST_t), 1, file);
 
     for (int i = 0; i < mib_list.nof_mibs; i++){
         print_MIB_t(mib_list.mib[i]);
@@ -95,4 +89,16 @@ int main(int argc, char *argv[]) {
     }
 
     printf("%d\n", mib_list.nof_mibs);
+
+    // int nof_mibs = 0;
+    // while (fread(&nof_mibs, sizeof(int), 1, file) > 0) {
+    //     for (int i = 0; i < nof_mibs; i++) {
+    //         MIB_t current_MIB_t;
+    //         fread(&current_MIB_t, sizeof(MIB_t), 1, file);
+    //         print_MIB_t(current_MIB_t);
+    //         puts("");
+    //     }
+    //     printf("nof_mibs: %d\n", nof_mibs);
+    //     puts("-----------------------------------");
+    // }
 }
