@@ -2,6 +2,7 @@
 !.gitignore
 test.c
 **/.env
+exec_file
 
 *.o
 *.out

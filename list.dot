@@ -1,0 +1,15 @@
+digraph G {
+  node [shape=circle, style=filled, color=lightblue, fontcolor=black];
+  edge [color=gray, arrowhead=vee];
+  "S" [label="S", shape=doublecircle, color=orange, fontcolor=black]
+  "S" -> "0x55700a3cb900" [color=red];
+  "0x55700a3cb900" [label="1", color=lightblue];
+  "0x55700a3cb900" -> "0x55700a3cca50" [label="next", color=green];
+  "0x55700a3cca50" [label="2", color=lightblue];
+  "0x55700a3cca50" -> "0x55700a3cca70" [label="next", color=green];
+  "0x55700a3cca70" [label="3", color=lightblue];
+  "0x55700a3cca70" -> "0x55700a3cca90" [label="next", color=green];
+  "0x55700a3cca90" [label="4", color=lightblue];
+  "0x55700a3cca90" -> "0x55700a3ccab0" [label="next", color=green];
+  "0x55700a3ccab0" [label="5", color=lightblue];
+}
