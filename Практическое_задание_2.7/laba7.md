@@ -1,4 +1,4 @@
-### task 3
+# task 3
 
 ## упр. 1
 ```c
@@ -27,7 +27,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_3.c ; ./a.out
 0 строка
@@ -81,7 +81,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_3.c ; ./a.out
 0 строка
@@ -166,7 +166,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_3.c ; ./a.out
 Поток 1: строка 1
@@ -258,7 +258,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_3.c ; ./a.out
 Поток 1: строка 1
@@ -355,7 +355,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_3.c ; ./a.out
 Поток 1: строка 1
@@ -407,13 +407,13 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc sleepsort.c ; ./a.out
 3 5 3 12 27 42 50 64 64 99 111 123 133 156 175 187 188 199 210 220 240 245 249 321 404 450 512 512 777 777 789 888 888 911 911 1001 1234 1333 1450 1666 1776 1888 1950 2100 2200 2250 2300 2400 2500 
 ```
 
-### task 4
+# task 4
 
 ## упр. 7
 ```c
@@ -488,7 +488,7 @@ int main() {
     return 0;
 }
 ```
-# Output:
+### Output:
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc task_4.c ; ./a.out
 Поток 1: строка 1
@@ -761,7 +761,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
-# Output
+### Output
 ```
 emeteil@LAPTOP-0U5RS7LC:~$ gcc matrix_multiplication.c ; ./a.out
 Матрица A:
@@ -858,7 +858,7 @@ emeteil@LAPTOP-0U5RS7LC:~$ gcc matrix_multiplication.c ; ./a.out
 Все вычисления завершены. Генерация графика...
 График сохранён!
 ```
-# graph.png
+### graph.png
 [![graph.png](https://i.postimg.cc/x8FNQgKV/graph.png)](https://postimg.cc/5QL2qB7s)
 
 ## упр. 10
@@ -1068,8 +1068,9 @@ int main() {
     return 0;
 }
 ```
-# Output
+### Output
 ```
+emeteil@LAPTOP-0U5RS7LC:~$ gcc simple_chat.c ; ./a.out
 Client2: отправил сообщение (1)
 Client3: отправил сообщение (2)
 Client1: отправил сообщение (0)
@@ -1106,3 +1107,340 @@ Client1: завершение...
 Server1: завершение...
 Server2: завершение...
 ```
+
+## Под Звездочкой
+```c
+/*
+ * Классическая задача с обедающими философами и дедлоком
+ * Без стыда украл исходник из НГУ POSIX практикума
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+
+#define PHILO 5
+#define DELAY 30000
+#define FOOD 50
+
+pthread_mutex_t forks[PHILO];
+pthread_t phils[PHILO];
+void *philosopher(void *id);
+int food_on_table();
+void get_fork(int, int, char *);
+void down_forks(int, int);
+pthread_mutex_t foodlock;
+
+int sleep_seconds = 0;
+
+int main(int argn, char **argv) {
+    int i;
+  
+    if (argn == 2)
+        sleep_seconds = atoi(argv[1]);
+  
+    pthread_mutex_init(&foodlock, NULL);
+    for (i = 0; i < PHILO; i++)
+        pthread_mutex_init(&forks[i], NULL);
+    for (i = 0; i < PHILO; i++)
+        pthread_create(&phils[i], NULL, philosopher, (void *)i);
+    for (i = 0; i < PHILO; i++)
+        pthread_join(phils[i], NULL);
+    return 0;
+}
+
+void *philosopher(void *num) {
+    int id;
+    int left_fork, right_fork, f;
+  
+    id = (int)num;
+    printf("Philosopher %d sitting down to dinner.\n", id);
+    right_fork = id;
+    left_fork = id + 1;
+  
+    /* Wrap around the forks. */
+    if (left_fork == PHILO)
+        left_fork = 0;
+
+    // ------------------------------------------------------------
+    /* Меняем порядок взятия вилок у последнего философа.
+    Все философы юерут вилку С НАИМЕНЬШИМ НОМЕРОМ, что
+    помогает избежать deadlock */
+    // https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BE%D0%B1_%D0%BE%D0%B1%D0%B5%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D1%85_%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%B0%D1%85#%D0%98%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%8F_%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2:~:text=%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%B1%D0%B5%D1%80%D1%91%D1%82%20%D1%81%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B0%20%D0%B2%D0%B8%D0%BB%D0%BA%D1%83%20%D1%81%20%D0%BD%D0%B0%D0%B8%D0%BC%D0%B5%D0%BD%D1%8C%D1%88%D0%B8%D0%BC%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%BE%D0%BC
+    if (id == PHILO - 1) {
+        int tmp = left_fork;
+        left_fork = right_fork;
+        right_fork = tmp;
+    }
+    /* Также есть вариант добавления "официанта" в задачу, который
+    будет разрешать брать вилку философу, на ru wiki советуют взять
+    в качесте "официанта" семафор */
+    // ------------------------------------------------------------
+  
+    while (f = food_on_table()) {
+        /* Thanks to philosophers #1 who would like to
+         * take a nap before picking up the forks, the other
+         * philosophers may be able to eat their dishes and
+         * not deadlock.
+         */
+    
+        if (id == 1)
+            sleep(sleep_seconds);
+    
+        printf("Philosopher %d: get dish %d.\n", id, f);
+        get_fork(id, right_fork, "right");
+        get_fork(id, left_fork, "left ");
+    
+        printf("Philosopher %d: eating.\n", id);
+        usleep(DELAY * (FOOD - f + 1));
+        down_forks(left_fork, right_fork);
+    }
+    printf("Philosopher %d is done eating.\n", id);
+    return (NULL);
+}
+
+int food_on_table() {
+    static int food = FOOD;
+    int myfood;
+  
+    pthread_mutex_lock(&foodlock);
+    if (food > 0) {
+        food--;
+    }
+    myfood = food;
+    pthread_mutex_unlock(&foodlock);
+    return myfood;
+}
+
+void get_fork(int phil, int fork, char *hand) {
+    pthread_mutex_lock(&forks[fork]);
+    printf("Philosopher %d: got %s fork %d\n", phil, hand, fork);
+}
+
+void down_forks(int f1, int f2) {
+    pthread_mutex_unlock(&forks[f1]);
+    pthread_mutex_unlock(&forks[f2]);
+}
+```
+### Output:
+```
+emeteil@LAPTOP-0U5RS7LC:~$ gcc din_phil.c ; ./a.out
+din_phil.c: In function ‘main’:
+din_phil.c:36:54: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   36 |         pthread_create(&phils[i], NULL, philosopher, (void *)i);
+      |                                                      ^
+din_phil.c: In function ‘philosopher’:
+din_phil.c:46:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   46 |     id = (int)num;
+      |          ^
+Philosopher 0 sitting down to dinner.
+Philosopher 0: get dish 49.
+Philosopher 0: got right fork 0
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 1 sitting down to dinner.
+Philosopher 2 sitting down to dinner.
+Philosopher 2: get dish 47.
+Philosopher 2: got right fork 2
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 3 sitting down to dinner.
+Philosopher 3: get dish 46.
+Philosopher 4 sitting down to dinner.
+Philosopher 4: get dish 45.
+Philosopher 1: get dish 48.
+Philosopher 0: get dish 44.
+Philosopher 1: got right fork 1
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 2: get dish 43.
+Philosopher 3: got right fork 3
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 42.
+Philosopher 1: got right fork 1
+Philosopher 4: get dish 41.
+Philosopher 4: got right fork 0
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 40.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 3: got right fork 3
+Philosopher 2: get dish 39.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 0: got right fork 0
+Philosopher 4: get dish 38.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 37.
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 3: get dish 36.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 0: get dish 35.
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 1: got right fork 1
+Philosopher 2: get dish 34.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 3: got right fork 3
+Philosopher 4: get dish 33.
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 32.
+Philosopher 1: got right fork 1
+Philosopher 4: get dish 31.
+Philosopher 0: got right fork 0
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 30.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 29.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 28.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 27.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 3: get dish 26.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 2: get dish 25.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 0: got left  fork 1
+Philosopher 1: get dish 24.
+Philosopher 0: eating.
+Philosopher 2: got right fork 2
+Philosopher 3: get dish 23.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 0: get dish 22.
+Philosopher 0: got right fork 0
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 3: get dish 21.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 0: get dish 20.
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 1: got right fork 1
+Philosopher 2: get dish 19.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 3: got right fork 3
+Philosopher 4: get dish 18.
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 17.
+Philosopher 1: got right fork 1
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 0: got right fork 0
+Philosopher 4: get dish 16.
+Philosopher 3: get dish 15.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 2: get dish 14.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 1: get dish 13.
+Philosopher 2: got right fork 2
+Philosopher 3: get dish 12.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 0: get dish 11.
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 1: got right fork 1
+Philosopher 2: get dish 10.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 3: got right fork 3
+Philosopher 4: get dish 9.
+Philosopher 0: got right fork 0
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 8.
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 3: get dish 7.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 0: get dish 6.
+Philosopher 1: got right fork 1
+Philosopher 4: got right fork 0
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 3: got right fork 3
+Philosopher 2: get dish 5.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 4: get dish 4.
+Philosopher 0: got right fork 0
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 2: got right fork 2
+Philosopher 1: get dish 3.
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 3: get dish 2.
+Philosopher 3: got right fork 3
+Philosopher 3: got left  fork 4
+Philosopher 3: eating.
+Philosopher 0: get dish 1.
+Philosopher 1: got right fork 1
+Philosopher 4: got right fork 0
+Philosopher 3 is done eating.
+Philosopher 4: got left  fork 4
+Philosopher 4: eating.
+Philosopher 2: got left  fork 3
+Philosopher 2: eating.
+Philosopher 2 is done eating.
+Philosopher 1: got left  fork 2
+Philosopher 1: eating.
+Philosopher 4 is done eating.
+Philosopher 0: got right fork 0
+Philosopher 1 is done eating.
+Philosopher 0: got left  fork 1
+Philosopher 0: eating.
+Philosopher 0 is done eating.
+```
+*Философы доели свои спагети и не подрались за вилки* 
+[![Chat-GPT-Image-21-2025-03-17-33.png](https://i.postimg.cc/4xryC9bK/Chat-GPT-Image-21-2025-03-17-33.png)](https://postimg.cc/FYVN316m)
