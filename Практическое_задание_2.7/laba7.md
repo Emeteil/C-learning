@@ -1442,6 +1442,6 @@ Philosopher 0: got left  fork 1
 Philosopher 0: eating.
 Philosopher 0 is done eating.
 ```
-*Философы доели свои спагети и не подрались за вилки* 
+*Философы доели свои пельмени и не подрались за вилки* 
 <!-- [![Chat-GPT-Image-21-2025-03-17-33.png](https://i.postimg.cc/4xryC9bK/Chat-GPT-Image-21-2025-03-17-33.png)](https://postimg.cc/FYVN316m) -->
 ![nxjhpyeafmrdbzf-cey-0mmnhuy.png](https://habrastorage.org/webt/nx/jh/py/nxjhpyeafmrdbzf-cey-0mmnhuy.png)
