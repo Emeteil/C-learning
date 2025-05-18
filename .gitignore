@@ -23,6 +23,7 @@ Desktop.ini
 /.vscode
 
 Build/
+Testing/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake

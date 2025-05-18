@@ -5,7 +5,7 @@
 
 #define MAX_N_PRINT 50
 #define CREATE_GRAPHIC 50
-#define GENERATE_GRAPH 1
+#define GENERATE_GRAPH 0
 
 typedef struct {
     int N;
