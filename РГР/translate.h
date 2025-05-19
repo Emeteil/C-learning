@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <wchar.h>
 #include <wctype.h>
-#include <locale.h>
+#include <getopt.h>
 
 typedef struct HashNode {
     char *key;

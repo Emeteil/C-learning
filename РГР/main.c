@@ -1,7 +1,6 @@
 #include "translate.h"
 
 int main(int argc, char *argv[]) {
-    setlocale(LC_ALL, "en_US.UTF-8");
     ProgramOptions options = parse_arguments(argc, argv);
     
     if (options.input_path == NULL || options.dict_path == NULL || options.output_path == NULL) {

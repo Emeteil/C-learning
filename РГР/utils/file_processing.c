@@ -1,7 +1,4 @@
 #include "file_processing.h"
-#include <sys/stat.h>
-#include <dirent.h>
-#include <pthread.h>
 
 void *translate_file_thread(void *arg) {
     ThreadData *data = (ThreadData *)arg;

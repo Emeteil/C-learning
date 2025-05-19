@@ -1,8 +1,4 @@
 #include "translation.h"
-#include <ctype.h>
-#include <stdbool.h>
-#include <string.h>
-#include <stdlib.h>
 
 char *strdup_lower(const char *s) {
     if (!s) return NULL;

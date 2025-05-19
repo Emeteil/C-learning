@@ -26,3 +26,34 @@ add_executable(translate
 target_include_directories(translate PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${JANSSON_INCLUDE_DIRS})
 
 target_link_libraries(translate ${CURL_LIBRARIES} ${JANSSON_LIBRARIES} pthread)
+
+find_library(CUNIT_LIBRARY NAMES cunit)
+add_executable(test_hash_table
+    tests/test_hash_table.c
+    utils/hash_table.c
+    utils/args_processing.c
+    utils/file_processing.c
+    utils/translation.c
+    utils/internet_search.c
+)
+
+target_include_directories(test_hash_table PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${JANSSON_INCLUDE_DIRS})
+
+target_link_libraries(test_hash_table ${CUNIT_LIBRARY} ${CURL_LIBRARIES} ${JANSSON_LIBRARIES} pthread)
+
+add_executable(test_translation
+    tests/test_translation.c
+    utils/hash_table.c
+    utils/args_processing.c
+    utils/file_processing.c
+    utils/translation.c
+    utils/internet_search.c
+)
+
+target_include_directories(test_translation PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${JANSSON_INCLUDE_DIRS})
+
+target_link_libraries(test_translation ${CUNIT_LIBRARY} ${CURL_LIBRARIES} ${JANSSON_LIBRARIES} pthread)
+
+enable_testing()
+add_test(NAME hash_table_test COMMAND test_hash_table)
+add_test(NAME translation_test COMMAND test_translation)

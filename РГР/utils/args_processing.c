@@ -1,5 +1,4 @@
 #include "args_processing.h"
-#include <getopt.h>
 
 void print_help() {
     printf("Использование: translate [ОПЦИИ] ВХОДНОЙ_ФАЙЛ СЛОВАРЬ ВЫХОДНОЙ_ФАЙЛ\n");
